@@ -77,7 +77,8 @@ body {
 }
 
 /* COURSE DETAILS */
-.intro-card p, .intro-card li {
+.intro-card p,
+.intro-card li {
     margin: 8px 0;
     font-size: 18px;
 }
@@ -90,20 +91,23 @@ body {
     font-size: 17px;
 }
 
+/* TABLE HEADER → BLACK */
 .student-table th {
-    background: #00c8ff;
-    color: black;
+    background: #000000;   /* BLACK */
+    color: white;          /* WHITE TEXT */
     padding: 12px;
     font-size: 18px;
     border: 1px solid #ccc;
 }
 
+/* TABLE BODY ROWS */
 .student-table td {
     background: #f9f9f9;
     padding: 12px;
     border: 1px solid #ccc;
 }
 
+/* ALTERNATING ROWS */
 .student-table tr:nth-child(even) td {
     background: #eef7ff;
 }
@@ -116,7 +120,7 @@ body {
     box-shadow: 0 5px 18px rgba(0,0,0,0.2);
 }
 
-/* MOBILE */
+/* MOBILE VIEW */
 @media (max-width: 700px) {
 
     .nav-links {
