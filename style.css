@@ -91,10 +91,10 @@ body {
     font-size: 17px;
 }
 
-/* TABLE HEADER → BLACK */
+/* BLUE TABLE HEADER */
 .student-table th {
-    background: #000000;   /* BLACK */
-    color: white;          /* WHITE TEXT */
+    background: #00c8ff;   /* BLUE */
+    color: black;
     padding: 12px;
     font-size: 18px;
     border: 1px solid #ccc;
