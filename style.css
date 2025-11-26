@@ -5,43 +5,53 @@
     box-sizing: border-box;
 }
 
-/* GLOBAL STYLES */
+/* GLOBAL */
 body {
     font-family: 'Poppins', sans-serif;
     background: #f4f4f7;
     color: #333;
     padding: 40px 20px;
+
+    /* Fix: Stack elements vertically */
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
 /* HEADER */
 .intro-header {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
+    background: #4CAF50;
+    padding: 30px 40px;
+    border-radius: 14px;
+    color: white;
+    width: 100%;
+    max-width: 900px;
 }
 
 .intro-header h1 {
-    font-size: 2.3rem;
+    font-size: 2.4rem;
     font-weight: 600;
-    color: #111;
 }
 
 .intro-header p {
-    font-size: 1.1rem;
-    margin-top: 8px;
-    color: #555;
+    margin-top: 10px;
+    font-size: 1.15rem;
 }
 
-/* INTRO SECTION */
+/* MAIN CONTENT */
 .intro-section {
     width: 100%;
     max-width: 900px;
+    margin-top: 30px;
+
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 25px;
 }
 
+/* BOXES */
 .details-box {
     background: white;
     padding: 25px;
@@ -59,18 +69,22 @@ body {
 .details-box h2 {
     margin-bottom: 15px;
     font-size: 1.4rem;
-    color: #222;
+    color: #2b7d36;
 }
 
 .details-box p {
     margin: 8px 0;
-    color: #444;
     font-size: 1rem;
+    color: #444;
 }
 
-/* RESPONSIVE DESIGN */
+/* RESPONSIVE */
 @media (max-width: 700px) {
     .intro-section {
         grid-template-columns: 1fr;
+    }
+
+    .intro-header {
+        padding: 25px;
     }
 }
