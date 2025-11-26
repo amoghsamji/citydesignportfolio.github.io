@@ -9,64 +9,107 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
+    /* RESET */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
+    /* GLOBAL (same as index) */
     body {
       font-family: 'Poppins', sans-serif;
-      background: #050505;
-      color: #ffffff;
-      line-height: 1.6;
+      background: linear-gradient(135deg, #e8eef3, #f5f9fc);
+      color: #222;
+      margin: 0;
     }
 
-    .wrapper {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 40px 20px 80px;
+    /* NAVBAR (same as index) */
+    .navbar {
+      width: 100%;
+      background: #000000; /* Black top bar */
+      padding: 18px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     }
 
-    /* Section: About Our Team */
-
-    .section-title {
-      text-align: center;
-      font-size: 2.5rem;
+    .logo {
+      font-size: 26px;
       font-weight: 700;
-      margin-bottom: 30px;
+      color: white;
+      letter-spacing: 1px;
     }
 
-    .about-box {
-      background: #181818;
-      border-radius: 10px;
-      padding: 25px 30px;
-      font-size: 0.98rem;
-      color: #e3e3e3;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 25px;
     }
 
-    .about-box p + p {
-      margin-top: 5px;
+    .nav-links li a {
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: 600;
+      color: white;
+      padding: 8px 12px;
+      transition: 0.3s ease;
+      border-radius: 6px;
     }
 
-    /* Section: Meet the Team */
+    .nav-links li a:hover {
+      background: white;
+      color: black;
+    }
 
+    /* PAGE TITLE (same class as index) */
+    .main-title {
+      text-align: center;
+      margin-top: 60px;
+      margin-bottom: 20px;
+      font-size: 38px;
+      font-weight: 700;
+    }
+
+    /* INTRO CARD (same base style as index) */
+    .intro-card {
+      background: white;
+      width: 80%;
+      max-width: 900px;
+      margin: 30px auto 40px;
+      padding: 40px;
+      border-radius: 14px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      text-align: center;
+    }
+
+    .intro-card p {
+      margin: 8px 0;
+      font-size: 18px;
+    }
+
+    /* TEAM SECTION (new, but styled to match index look) */
     .team-section {
-      margin-top: 70px;
+      width: 80%;
+      max-width: 1200px;
+      margin: 0 auto 70px;
     }
 
-    .team-title {
+    .team-heading {
       text-align: center;
-      font-size: 2.3rem;
+      font-size: 32px;
       font-weight: 700;
-      margin-bottom: 40px;
+      margin: 40px 0 30px;
     }
 
     .team-grid {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 30px;
+      gap: 25px;
     }
 
     @media (max-width: 1024px) {
@@ -75,173 +118,193 @@
       }
     }
 
-    @media (max-width: 640px) {
+    @media (max-width: 700px) {
+      .nav-links {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .intro-card {
+        width: 90%;
+        padding: 25px;
+      }
+
+      .team-section {
+        width: 90%;
+      }
+
       .team-grid {
         grid-template-columns: 1fr;
       }
     }
 
     .team-card {
-      background: #050505;
-      border-radius: 12px;
-      padding: 30px 25px;
+      background: #ffffff;
+      border-radius: 14px;
+      padding: 25px 20px;
       text-align: center;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.7);
-      border: 1px solid #262626;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      border: 1px solid #ddd;
       transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
     }
 
     .team-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 18px 40px rgba(0,0,0,0.9);
-      border-color: #666;
+      transform: translateY(-6px);
+      box-shadow: 0 14px 30px rgba(0,0,0,0.20);
+      border-color: #00c8ff;
     }
 
     .team-name {
-      font-size: 1.35rem;
+      font-size: 1.25rem;
       font-weight: 600;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
 
     .team-id {
-      font-size: 0.85rem;
-      color: #b3b3b3;
-      margin-bottom: 20px;
+      font-size: 0.9rem;
+      color: #555;
+      margin-bottom: 16px;
     }
 
     .skills-label {
-      font-size: 0.9rem;
-      font-weight: 500;
-      margin-bottom: 12px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 10px;
     }
 
-    .skills-label span.icon {
+    .skills-label .icon {
       margin-right: 6px;
     }
 
     .team-card ul {
-      text-align: left;
       list-style: disc;
-      margin: 0 auto 22px;
-      padding-left: 18px;
+      text-align: left;
+      margin: 0 auto 18px;
+      padding-left: 20px;
       max-width: 220px;
-      font-size: 0.9rem;
-      color: #dcdcdc;
+      font-size: 0.95rem;
+      color: #333;
     }
 
     .team-card ul li + li {
-      margin-top: 6px;
+      margin-top: 5px;
     }
 
     .team-card a {
       display: inline-block;
       text-decoration: none;
       font-size: 0.9rem;
-      color: #ffffff;
-      border: 1px solid #ffffff;
+      color: #000;
+      border: 1px solid #000;
       padding: 8px 16px;
       border-radius: 999px;
       transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
     }
 
     .team-card a:hover {
-      background: #ffffff;
-      color: #000000;
-      border-color: #ffffff;
+      background: #000;
+      color: #fff;
+      border-color: #000;
     }
   </style>
 </head>
 <body>
 
-  <div class="wrapper">
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="logo">Smart City Project</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">Team</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
 
-    <!-- About Our Team -->
-    <h1 class="section-title">About Our Team</h1>
-    <div class="about-box">
-      <p>We are a passionate team of computer science enthusiasts working together on a groundbreaking project to develop sustainable, data-driven solutions for modern urban challenges.</p>
-      <p>Our goal is to integrate technology and innovation to create systems that are scalable, efficient, and user-friendly.</p>
-    </div>
-
-    <!-- Meet the Team -->
-    <section class="team-section">
-      <h2 class="team-title">Meet the Team</h2>
-
-      <div class="team-grid">
-        <!-- Card 1 -->
-        <div class="team-card">
-          <div class="team-name">Amogh Samji</div>
-          <div class="team-id">01FE24BCS193</div>
-
-          <div class="skills-label">
-            <span class="icon">🚀</span>Skills
-          </div>
-
-          <ul>
-            <li>C, C++</li>
-            <li>Data Structures and Algorithms</li>
-            <li>Web Development (HTML,CSS)</li>
-          </ul>
-
-          <a href="#" target="_blank">LinkedIn Profile</a>
-        </div>
-
-        <!-- Card 2 -->
-        <div class="team-card">
-          <div class="team-name">Chinmay B Sabarad</div>
-          <div class="team-id">01FE24BCS201</div>
-
-          <div class="skills-label">
-            <span class="icon">🚀</span>Skills
-          </div>
-
-          <ul>
-            <li>C, C++</li>
-            <li>Data Structures and Algorithms</li>
-            <li>Web Development (HTML,CSS)</li>
-          </ul>
-
-          <a href="#" target="_blank">LinkedIn Profile</a>
-        </div>
-
-        <!-- Card 3 -->
-        <div class="team-card">
-          <div class="team-name">Subhash Reddy</div>
-          <div class="team-id">01FE24BCS</div>
-
-          <div class="skills-label">
-            <span class="icon">🚀</span>Skills
-          </div>
-
-          <ul>
-            <li>C, C++</li>
-            <li>Data Structures and Algorithms</li>
-            <li>Web Development (HTML,CSS)</li>
-          </ul>
-
-          <a href="#" target="_blank">LinkedIn Profile</a>
-        </div>
-
-        <!-- Card 4 -->
-        <div class="team-card">
-          <div class="team-name">Abhinav Raj</div>
-          <div class="team-id">01FE24BCS</div>
-
-          <div class="skills-label">
-            <span class="icon">🚀</span>Skills
-          </div>
-
-          <ul>
-            <li>C, C++</li>
-            <li>Data Structures and Algorithms</li>
-            <li>Web Development (HTML,CSS)</li>
-          </ul>
-
-          <a href="#" target="_blank">LinkedIn Profile</a>
-        </div>
-      </div>
-    </section>
-
+  <!-- About Our Team -->
+  <h1 class="main-title">About Our Team</h1>
+  <div class="intro-card">
+    <p>We are a passionate team of computer science enthusiasts working together on a groundbreaking project to develop sustainable, data-driven solutions for modern urban challenges.</p>
+    <p>Our goal is to integrate technology and innovation to create systems that are scalable, efficient, and user-friendly.</p>
   </div>
+
+  <!-- Meet the Team -->
+  <section class="team-section">
+    <h2 class="team-heading">Meet the Team</h2>
+
+    <div class="team-grid">
+      <!-- Card 1 -->
+      <div class="team-card">
+        <div class="team-name">Amogh Samji</div>
+        <div class="team-id">01FE24BCS193</div>
+
+        <div class="skills-label">
+          <span class="icon">🚀</span>Skills
+        </div>
+
+        <ul>
+          <li>C, C++</li>
+          <li>Data Structures and Algorithms</li>
+          <li>Web Development (HTML, CSS)</li>
+        </ul>
+
+        <a href="#" target="_blank">LinkedIn Profile</a>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="team-card">
+        <div class="team-name">Chinmay B Sabarad</div>
+        <div class="team-id">01FE24BCS201</div>
+
+        <div class="skills-label">
+          <span class="icon">🚀</span>Skills
+        </div>
+
+        <ul>
+          <li>C, C++</li>
+          <li>Data Structures and Algorithms</li>
+          <li>Web Development (HTML, CSS)</li>
+        </ul>
+
+        <a href="#" target="_blank">LinkedIn Profile</a>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="team-card">
+        <div class="team-name">Subhash Reddy</div>
+        <div class="team-id">01FE24BCS</div>
+
+        <div class="skills-label">
+          <span class="icon">🚀</span>Skills
+        </div>
+
+        <ul>
+          <li>C, C++</li>
+          <li>Data Structures and Algorithms</li>
+          <li>Web Development (HTML, CSS)</li>
+        </ul>
+
+        <a href="#" target="_blank">LinkedIn Profile</a>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="team-card">
+        <div class="team-name">Abhinav Raj</div>
+        <div class="team-id">01FE24BCS</div>
+
+        <div class="skills-label">
+          <span class="icon">🚀</span>Skills
+        </div>
+
+        <ul>
+          <li>C, C++</li>
+          <li>Data Structures and Algorithms</li>
+          <li>Web Development (HTML, CSS)</li>
+        </ul>
+
+        <a href="#" target="_blank">LinkedIn Profile</a>
+      </div>
+    </div>
+  </section>
 
 </body>
 </html>
